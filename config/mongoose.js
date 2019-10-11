@@ -12,7 +12,7 @@ const options = {
   };
 module.exports = function () {
     mongoose.set('debug', config.debug);
-    var db = mongoose.connect('mongodb://localhost/tgr14',options).then(
+    var db = mongoose.connect(config.mongoUri,options).then(
         ()=>{
           console.log("connected to mongoDB")},
        (err)=>{
