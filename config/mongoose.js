@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 module.exports = function () {
     mongoose.set('debug', config.debug);
     //var db = mongoose.connect(config.mongoUri);
-    var db = mongoose.connect('mongodb://heroku_jvp8kncs:tloup834159i629f624onibgbn@ds117101.mlab.com:17101/heroku_jvp8kncs',{ useNewUrlParser: true,
+    /*var db = mongoose.connect('mongodb://heroku_jvp8kncs:tloup834159i629f624onibgbn@ds117101.mlab.com:17101/heroku_jvp8kncs',{ useNewUrlParser: true,
     autoIndex: false, // Don't build indexes
     reconnectTries: 100, // Never stop trying to reconnect
     reconnectInterval: 500, // Reconnect every 500ms
@@ -16,7 +16,15 @@ module.exports = function () {
        (err)=>{
            console.log("err = ",err);
        });
-
+    */
+    var db = mongoose.connect('mongodb://heroku_jvp8kncs:tloup834159i629f624onibgbn@ds117101.mlab.com:17101/heroku_jvp8kncs', (err, res) => {
+        if(err) {
+          console.log(err);
+        }
+        else {
+          console.log('connected');
+        }
+      });
 
     require('../app/models/user.model');
     require('../app/models/exam.model');
