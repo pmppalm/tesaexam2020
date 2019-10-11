@@ -1,5 +1,5 @@
 module.exports = {
     debug: false,
-    mongoUri: 'mongodb://heroku_dfqc2437:lr0uktbh3q1smnbgrfvje8fqa4@ds229118.mlab.com:29118/heroku_dfqc2437',
+    mongoUri: 'mongodb://heroku_jvp8kncs:tloup834159i629f624onibgbn@ds117101.mlab.com:17101/heroku_jvp8kncs',
     sessionSecret: 'prod_secret_key'
 };
