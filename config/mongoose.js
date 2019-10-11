@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 module.exports = function () {
     mongoose.set('debug', config.debug);
     //var db = mongoose.connect(config.mongoUri);
-    var db = mongoose.connect('mongodb://heroku_jvp8kncs:tloup834159i629f624onibgbn@ds117101.mlab.com:17101/heroku_jvp8kncs',{ //useMongoClient: true,
+    var db = mongoose.connect('mongodb://heroku_jvp8kncs:tloup834159i629f624onibgbn@ds117101.mlab.com:17101/heroku_jvp8kncs',{ useNewUrlParser: true,
     autoIndex: false, // Don't build indexes
     reconnectTries: 100, // Never stop trying to reconnect
     reconnectInterval: 500, // Reconnect every 500ms
@@ -14,7 +14,7 @@ module.exports = function () {
         ()=>{
           console.log("connected to mongoDB")},
        (err)=>{
-           console.log("err",err);
+           console.log("err = ",err);
        });
 
 
