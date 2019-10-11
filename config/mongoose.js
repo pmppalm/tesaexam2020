@@ -2,13 +2,24 @@ var config = require('./config');
 var mongoose = require('mongoose');
 
 module.exports = function () {
-    //mongoose.set('debug', config.debug);
+    mongoose.set('debug', config.debug);
     //var db = mongoose.connect(config.mongoUri);
-    //var db = mongoose.connect('mongodb://tgr13:silpakorn13@ds235775.mlab.com:35775/heroku_jm7p5fsc');
-    //var db = mongoose.connect('mongodb://heroku_wjq5hw7f:qa1p9074squ4fkeo5utqd26tr5@ds153593.mlab.com:53593/heroku_wjq5hw7f');
-    var db = mongoose.connect('mongodb://heroku_jvp8kncs:tloup834159i629f624onibgbn@ds117101.mlab.com:17101/heroku_jvp8kncs',{ useNewUrlParser: true });
+    var db = mongoose.connect('mongodb://heroku_jvp8kncs:tloup834159i629f624onibgbn@ds117101.mlab.com:17101/heroku_jvp8kncs',{ //useMongoClient: true,
+    autoIndex: false, // Don't build indexes
+    reconnectTries: 100, // Never stop trying to reconnect
+    reconnectInterval: 500, // Reconnect every 500ms
+    poolSize: 10, // Maintain up to 10 socket connections
+    // If not connected, return errors immediately rather than waiting for reconnect
+    bufferMaxEntries: 0 }).then(
+        ()=>{
+          console.log("connected to mongoDB")},
+       (err)=>{
+           console.log("err",err);
+       });
+
 
     require('../app/models/user.model');
     require('../app/models/exam.model');
     return db;
 }
+
