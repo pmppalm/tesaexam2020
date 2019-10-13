@@ -4,11 +4,9 @@ var express = require('./config/express'),
     mongoose = require('./config/mongoose'),
     passport = require('./config/passport');
 
-    mongoose.Promise = global.Promise;
-
 var db = mongoose();
-var app = express(),
-    port = process.env.PORT||3000;
+var app = express();
+var port = process.env.PORT || 3000;
 var passport = passport();
 
 app.listen(port);

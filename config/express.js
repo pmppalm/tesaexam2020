@@ -12,10 +12,10 @@ var express = require('express'),
 module.exports = function () {
     var app = express();
 
-    if(process.env.NODE_ENV === 'development'){
+    if (process.env.NODE_ENV === 'development') {
         app.use(morgan('dev'));
     }
-    else{
+    else {
         app.use(compression);
     }
     app.use(session({
