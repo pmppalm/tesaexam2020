@@ -11,7 +11,7 @@ const options = {
   bufferMaxEntries: 0
 };
 module.exports = function () {
-  mongoose.set('debug', config.debug);
+  //mongoose.set('debug', config.debug);
   var db = mongoose.connect('mongodb://heroku_jvp8kncs:tloup834159i629f624onibgbn@ds117101.mlab.com:17101/heroku_jvp8kncs', options).then(
     () => {
       console.log("connected to mongoDB")
