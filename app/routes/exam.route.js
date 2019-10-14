@@ -33,7 +33,7 @@ module.exports = function (app) {
         .post(exam.postRequest)
         .get(exam.getRequest);
 
-    app.route('/people/2')
-        .get(exam.getVader)
+    app.route('/product/2')
+        .get(exam.getJson)
 
 };

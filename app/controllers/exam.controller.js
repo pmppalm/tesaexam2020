@@ -247,10 +247,10 @@ exports.getVehicle2 = function (req, res, next) {
 
 exports.postRequest = function (req, res, next) {
     if(req.body.name == "muzic"){
-        res.send("Wrong");
+        res.send("cpsu");
     }
     else{
-        res.send("Correct");
+        res.send("lucky");
     }
 };
 
@@ -258,25 +258,26 @@ exports.getRequest = function (req, res, next) {
     res.send("Correct");
 };
 
-exports.getVader = function (req, res, next) {
-    var url = 'https://swapi.co/api/people/4/'; // HTTP Request
-    var json = '{"doc" : [' ;
-    request({
-        headers: {'content-type' : 'application/json'},
-        url: url,
-        method: 'GET',
-        json: {'text': req.body.text}
-    }, function(error, response, body){
-        var str = JSON.stringify(body); // json to string
-        str = str.replace("https://swapi.co/api/planets/1/", "Tatooine");
-        str = str.replace("https://swapi.co/api/films/2/", "The Empire Strikes Back");
-        str = str.replace("https://swapi.co/api/films/6/", "Revenge of the Sith");
-        str = str.replace("https://swapi.co/api/films/3/", "The Empire Strikes Back");
-        str = str.replace("https://swapi.co/api/films/1/", "A New Hope");
-        str = str.replace("https://swapi.co/api/species/1/", "Human");
-        str = str.replace("https://swapi.co/api/starships/13/", "TIE Advanced x1");
-        str = str.replace("https://swapi.co/api/people/4/", "https://tgr13.herokuapp.com/people/2");
-        var sw = JSON.parse(str); // string to json
-        res.send(sw);
-    });
+exports.getJson = function (req, res, next) {
+    res.send('{ "name":"John", "age":30, "cars": [ { "name":"Ford", "models":[ "Fiesta", "Focus", "Mustang" ] }, { "name":"BMW", "models":[ "320", "X3", "X5" ] }, { "name":"Fiat", "models":[ "500", "Panda" ] } ] }');
+    // var url = 'https://swapi.co/api/people/4/'; // HTTP Request
+    // var json = '{"doc" : [' ;
+    // request({
+    //     headers: {'content-type' : 'application/json'},
+    //     url: url,
+    //     method: 'GET',
+    //     json: {'text': req.body.text}
+    // }, function(error, response, body){
+    //     var str = JSON.stringify(body); // json to string
+    //     str = str.replace("https://swapi.co/api/planets/1/", "Tatooine");
+    //     str = str.replace("https://swapi.co/api/films/2/", "The Empire Strikes Back");
+    //     str = str.replace("https://swapi.co/api/films/6/", "Revenge of the Sith");
+    //     str = str.replace("https://swapi.co/api/films/3/", "The Empire Strikes Back");
+    //     str = str.replace("https://swapi.co/api/films/1/", "A New Hope");
+    //     str = str.replace("https://swapi.co/api/species/1/", "Human");
+    //     str = str.replace("https://swapi.co/api/starships/13/", "TIE Advanced x1");
+    //     str = str.replace("https://swapi.co/api/people/4/", "https://tgr13.herokuapp.com/people/2");
+    //     var sw = JSON.parse(str); // string to json
+    //     res.send(sw);
+    // });
 };
